@@ -1,8 +1,12 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import logImg from "../assets/images/service.png";
+import UseAuth from "../Hook/UseAuth";
+import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
+  const { user, signOutUser } = UseAuth();
   const links = (
     <>
       <li>
@@ -31,6 +35,81 @@ const Navbar = () => {
       </li>
     </>
   );
+  const linksMore = (
+    <>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
+          to={"/"}
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
+          to={"/services"}
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
+          to={"/addServices"}
+        >
+          Add Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
+          to={"/myServices"}
+        >
+          My Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
+          to={"/myreviews"}
+        >
+          My Reviews
+        </NavLink>
+      </li>
+    </>
+  );
+  const handleLogOut = () => {
+    signOutUser().then(() => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "LogOut Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+  };
   return (
     <div className="bg-base-100 shadow-sm">
       <div className="navbar md:w-11/12 mx-auto py-3">
@@ -50,14 +129,14 @@ const Navbar = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2"
             >
-              {links}
+              {user ? linksMore : links}
             </ul>
           </div>
           <Link to={"/"} className="flex items-center gap-2">
@@ -68,25 +147,59 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
+          <ul className="menu menu-horizontal px-1 gap-2">
+            {user ? linksMore : links}
+          </ul>
         </div>
         <div className="navbar-end gap-2">
-          <NavLink
-            className={
-              "btn hover:bg-blue-400 hover:text-white border border-black"
-            }
-            to={"/auth/login"}
-          >
-            LogIn
-          </NavLink>
-          <NavLink
-            className={
-              "btn hover:bg-blue-400 hover:text-white border border-black"
-            }
-            to={"/auth/register"}
-          >
-            Register
-          </NavLink>
+          {user ? (
+            <>
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+              >
+                <img
+                  className="w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </a>
+              <Tooltip id="my-tooltip" place="top" />
+            </>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <>
+              <button
+                onClick={handleLogOut}
+                className={
+                  "btn hover:bg-blue-400 hover:text-white border border-black"
+                }
+              >
+                LogOut
+              </button>
+            </>
+          ) : (
+            <>
+              <NavLink
+                className={
+                  "btn hover:bg-blue-400 hover:text-white border border-black"
+                }
+                to={"/auth/login"}
+              >
+                LogIn
+              </NavLink>
+              <NavLink
+                className={
+                  "btn hover:bg-blue-400 hover:text-white border border-black"
+                }
+                to={"/auth/register"}
+              >
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>

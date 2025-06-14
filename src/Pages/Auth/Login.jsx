@@ -84,7 +84,7 @@ const Login = () => {
             </div>
             <div>
               <div onClick={handleGoogle}>
-                <h1 className="input justify-center">
+                <h1 className="input justify-center cursor-pointer">
                   <FcGoogle size={20}></FcGoogle>
                   <span className="text-xs font-semibold">
                     Continue With Google
