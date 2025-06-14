@@ -61,9 +61,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={"/"} className="flex items-center gap-2">
-            <a className="">
-              <img className="w-14" src={logImg} alt="Logo" />
-            </a>
+            <img className="w-14" src={logImg} alt="Logo" />
             <h1 className="text-xl md:text-2xl font-bold hidden md:flex">
               Service<span className="text-[#1191D0]">Review</span>
             </h1>
