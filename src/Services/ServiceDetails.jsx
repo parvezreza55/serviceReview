@@ -10,7 +10,6 @@ const ServiceDetails = () => {
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [reviewsData, setReviewsData] = useState(null);
-  console.log(rating);
   const { user } = UseAuth();
   const handleAddRiview = () => {
     if (!user) {
@@ -32,10 +31,10 @@ const ServiceDetails = () => {
     e.preventDefault();
     const form = e.target;
     const textarea = form.textarea.value;
-    console.log(textarea);
     const date = new Date();
     const newDate = date.toLocaleDateString("en-CA");
     const photoURL = user.photoURL;
+    const userEmail = user.email;
     const name = user.displayName;
     const reviewsData = {
       textarea,
@@ -43,6 +42,8 @@ const ServiceDetails = () => {
       rating,
       photoURL,
       name,
+      userEmail,
+      serviceTitle,
     };
     setReviewsData(reviewsData);
     axios
@@ -54,7 +55,6 @@ const ServiceDetails = () => {
         console.log(error);
       });
   };
-  console.log(detailsData);
   return (
     <>
       <div className="md:w-11/12 mx-auto mt-10">

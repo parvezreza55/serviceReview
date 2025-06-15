@@ -92,7 +92,7 @@ const Navbar = () => {
               ? "underline text-white bg-blue-400 hover:text-white"
               : "hover:bg-blue-400 hover:text-white"
           }
-          to={"/myreviews"}
+          to={"/myReviews"}
         >
           My Reviews
         </NavLink>

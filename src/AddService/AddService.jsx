@@ -1,5 +1,7 @@
 import React from "react";
 import UseAuth from "../Hook/UseAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddService = () => {
   const date = new Date();
@@ -10,8 +12,25 @@ const AddService = () => {
     const form = e.target;
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
-    serviceData.newDate = newDate;
+    serviceData.addedDate = newDate;
     console.log(serviceData);
+    axios
+      .post("http://localhost:3000/services", serviceData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="mt-20  w-11/12 mx-auto">
@@ -27,6 +46,7 @@ const AddService = () => {
               name="Service Image"
               className="input w-full"
               placeholder="Service Image"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -36,6 +56,7 @@ const AddService = () => {
               name="serviceTitle"
               className="input w-full"
               placeholder="Service Title"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -45,6 +66,7 @@ const AddService = () => {
               name="companyName"
               className="input w-full"
               placeholder="Company Name"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -54,6 +76,7 @@ const AddService = () => {
               name="website"
               className="input w-full"
               placeholder="Website"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -63,6 +86,7 @@ const AddService = () => {
               name="description"
               className="input w-full"
               placeholder="Description"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -72,6 +96,7 @@ const AddService = () => {
               name="category"
               className="input w-full"
               placeholder="Category"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -81,6 +106,7 @@ const AddService = () => {
               name="price"
               className="input w-full"
               placeholder="Price"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
@@ -90,6 +116,7 @@ const AddService = () => {
               name="userEmail"
               className="input w-full"
               placeholder="Email"
+              required
               value={user.email}
             />
           </fieldset>
