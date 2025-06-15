@@ -151,7 +151,7 @@ const Navbar = () => {
             {user ? linksMore : links}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-end gap-2 z-20">
           {user ? (
             <>
               <a
