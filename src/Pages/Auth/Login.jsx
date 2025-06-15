@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import UseAuth from "../../Hook/UseAuth";
 import Swal from "sweetalert2";
 import { Bounce, toast } from "react-toastify";
@@ -9,6 +9,8 @@ import { Bounce, toast } from "react-toastify";
 const Login = () => {
   const { signInGoogle, signIn, setUser } = UseAuth();
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,6 +26,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(location.state || "/");
       })
       .catch(() => {
         toast.warn("Invalid email or password", {
@@ -40,18 +43,20 @@ const Login = () => {
       });
   };
   const handleGoogle = () => {
-    signInGoogle().then((result) => {
-      const results = result.user;
-      setUser(results);
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "LogIn Successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    });
-    console.catch(() => {});
+    signInGoogle()
+      .then((result) => {
+        const results = result.user;
+        setUser(results);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "LogIn Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(location.state || "/");
+      })
+      .catch(() => {});
   };
   return (
     <form onSubmit={handleLogin} className="hero mt-24">
