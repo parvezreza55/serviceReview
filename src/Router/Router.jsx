@@ -30,12 +30,17 @@ const router = createBrowserRouter([
         element: <Services></Services>,
       },
       {
-        path: "/service/:id",
-        element: (
-          <PrivateRoutes>
-            <ServiceDetails></ServiceDetails>
-          </PrivateRoutes>
+        path: "/serviceDetails/:id",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner text-neutral"></span>
+            </div>
+          </>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
+        element: <ServiceDetails></ServiceDetails>,
       },
     ],
   },

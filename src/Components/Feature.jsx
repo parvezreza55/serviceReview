@@ -2,7 +2,6 @@ import React from "react";
 import FeatureCard from "./FeatureCard";
 
 const Feature = ({ serviceData }) => {
-  console.log(serviceData);
   return (
     <>
       <div className="md:w-11/12 mx-auto mt-32">
