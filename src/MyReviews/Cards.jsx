@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
-const Cards = ({ review }) => {
+const Cards = ({ review, reviewsData, setReviewsData }) => {
   const [rating, setRating] = useState(0);
   const { serviceTitle, _id } = review;
   const handleReviews = (e) => {
@@ -25,6 +26,34 @@ const Cards = ({ review }) => {
     form.reset();
   };
 
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/review/${id}`)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch(() => {});
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        // remaining data
+        const remainingReview = reviewsData.filter((rev) => rev._id !== id);
+        setReviewsData(remainingReview);
+      }
+    });
+  };
   return (
     <div>
       <div className="card px-5 bg-base-100 w-2xl shadow-sm mt-5">
@@ -142,7 +171,10 @@ const Cards = ({ review }) => {
             </dialog>
           </div>
           <div>
-            <button className="btn bg-blue-400 text-white hover:bg-blue-300">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn bg-blue-400 text-white hover:bg-blue-300"
+            >
               Delete
             </button>
           </div>
