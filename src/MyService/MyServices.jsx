@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
 import UseAuth from "../Hook/UseAuth";
-import MyReviewCard from "./MyReviewCard";
-import useReviewApi from "../Api/useReviewApi";
+import MyServiceTable from "./MyServiceTable";
+import useServiceApi from "../Api/useServiceApi";
 
-const MyReviews = () => {
+const MyServices = () => {
   const { user } = UseAuth();
-  const { myReviews } = useReviewApi();
+  const { myServices } = useServiceApi();
   return (
     <div>
       <Suspense
@@ -17,12 +17,12 @@ const MyReviews = () => {
           </>
         }
       >
-        <MyReviewCard
-          myReviews={myReviews(user.email, user.accessToken)}
-        ></MyReviewCard>
+        <MyServiceTable
+          myServices={myServices(user.email, user.accessToken)}
+        ></MyServiceTable>
       </Suspense>
     </div>
   );
 };
 
-export default MyReviews;
+export default MyServices;

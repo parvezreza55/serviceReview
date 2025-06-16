@@ -9,6 +9,8 @@ import ServiceDetails from "../Services/ServiceDetails";
 import AddService from "../AddService/AddService";
 import MyReviews from "../MyReviews/MyReviews";
 import AllServices from "../Services/AllServices";
+import MyServices from "../MyService/MyServices";
+import UpdateService from "../MyService/UpdateService";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +26,25 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () => fetch("http://localhost:3000/services"),
+        loader: () =>
+          fetch(
+            "https://service-review-server-lovat-seven.vercel.app/services"
+          ),
         element: <Home></Home>,
       },
       {
         path: "/services",
+        hydrateFallbackElement: (
+          <>
+            <div className="text-center">
+              <span className="loading loading-spinner text-neutral"></span>
+            </div>
+          </>
+        ),
+        loader: () =>
+          fetch(
+            "https://service-review-server-lovat-seven.vercel.app/allService"
+          ),
         element: <AllServices></AllServices>,
       },
       {
@@ -41,7 +57,9 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/services/${params.id}`),
+          fetch(
+            `https://service-review-server-lovat-seven.vercel.app/services/${params.id}`
+          ),
         element: <ServiceDetails></ServiceDetails>,
       },
       {
@@ -49,6 +67,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <AddService></AddService>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/myServices",
+        element: (
+          <PrivateRoutes>
+            <MyServices></MyServices>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/myServices/:id",
+        element: (
+          <PrivateRoutes>
+            <UpdateService></UpdateService>
           </PrivateRoutes>
         ),
       },

@@ -1,27 +1,29 @@
-import React from "react";
-import UseAuth from "../Hook/UseAuth";
 import axios from "axios";
+import React from "react";
+import { useParams } from "react-router";
 import Swal from "sweetalert2";
+import UseAuth from "../Hook/UseAuth";
 
-const AddService = () => {
+const UpdateService = () => {
+  const { id } = useParams();
+  console.log(id);
   const date = new Date();
   const { user } = UseAuth();
   const newDate = date.toLocaleDateString("en-CA");
-  const handleAddService = (e) => {
+  const handleUpdateService = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.addedDate = newDate;
-    console.log(serviceData);
     axios
-      .post(
-        "https://service-review-server-lovat-seven.vercel.app/services",
+      .put(
+        `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`,
         serviceData
       )
       .then((res) => {
         console.log(res.data);
-        if (res.data.insertedId) {
+        if (res.data.modifiedCount) {
           Swal.fire({
             position: "center",
             icon: "success",
@@ -38,9 +40,9 @@ const AddService = () => {
   return (
     <div className="mt-20  w-11/12 mx-auto">
       <h1 className="text-xl md:text-4xl text-center font-bold mb-5">
-        Add Service
+        Update Service
       </h1>
-      <form onSubmit={handleAddService}>
+      <form onSubmit={handleUpdateService}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box  border p-4">
             <legend className="fieldset-legend">Service Image</legend>
@@ -128,11 +130,11 @@ const AddService = () => {
           type="submit"
           className="btn w-full bg-blue-400 text-white hover:bg-blue-300 mt-10"
         >
-          Add Service
+          Update Service
         </button>
       </form>
     </div>
   );
 };
 
-export default AddService;
+export default UpdateService;

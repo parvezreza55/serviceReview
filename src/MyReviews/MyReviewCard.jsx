@@ -5,7 +5,7 @@ const MyReviewCard = ({ myReviews }) => {
   const reviews = use(myReviews);
   const [reviewsData, setReviewsData] = useState(reviews);
   return (
-    <div className="md:w-11/12 mx-auto flex flex-col justify-center items-center">
+    <div className="w-11/12 mx-auto flex flex-col justify-center items-center">
       {reviewsData.map((review) => (
         <Cards
           key={review._id}

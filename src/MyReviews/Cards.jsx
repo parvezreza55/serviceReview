@@ -15,7 +15,10 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     };
     console.log(_id);
     axios
-      .patch(`http://localhost:3000/review/${_id}`, reviewsData)
+      .patch(
+        `https://service-review-server-lovat-seven.vercel.app/review/${_id}`,
+        reviewsData
+      )
       .then((res) => {
         console.log(res.data);
       })
@@ -38,14 +41,16 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/review/${id}`)
+          .delete(
+            `https://service-review-server-lovat-seven.vercel.app/review/${id}`
+          )
           .then((res) => {
             console.log(res.data);
           })
           .catch(() => {});
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your review has been deleted.",
           icon: "success",
         });
         // remaining data
@@ -56,7 +61,7 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
   };
   return (
     <div>
-      <div className="card px-5 bg-base-100 w-2xl shadow-sm mt-5">
+      <div className="card px-5 bg-base-100 md:w-2xl shadow-sm mt-5">
         <div className="card-body justify-center items-center">
           <h2 className="">
             <div className="flex flex-col">
