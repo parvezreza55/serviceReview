@@ -1,12 +1,41 @@
-# React + Vite
+# 🛠️ Service Review System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic full-stack platform where users can **add services**, **post reviews**, and **explore** what others have shared about different services across various industries.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🔗 Live Website
+[Live Link](https://your-deployment-url.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💡 Key Features
+
+- 🔐 **Authentication System**
+  - Email/password login & registration using Firebase
+  - Google OAuth Login
+  - JWT token-based protected routes (My Services, My Reviews, Add Service)
+
+- 🧾 **Service Management**
+  - Add, update, delete personal services
+  - Browse all services
+  - View service details with review count and all reviews
+
+- 🗣️ **Review Management**
+  - Add, update, delete reviews with rating
+  - My Reviews section for personalized management
+
+- 🔍 **Search*
+  - Search services by title, category
+
+
+- 📊 **Statistics (CountUp.js)**
+  - Count and animate total users, reviews, and services
+
+- 🖼️ **Home Page**
+  - Banner
+  - Featured Services
+  - Meet Our Partners section
+  - FAQ & Contact form
+  - 2 Extra sections including statistics and partners
+
+- ⚙️ **Error Handling**
+  - 404 page and route-based dynamic title
