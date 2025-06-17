@@ -30,7 +30,7 @@ const Navbar = () => {
           }
           to={"/services"}
         >
-          Services
+          All Services
         </NavLink>
       </li>
     </>
@@ -58,7 +58,7 @@ const Navbar = () => {
           }
           to={"/services"}
         >
-          Services
+          All Services
         </NavLink>
       </li>
       <li>

@@ -26,7 +26,7 @@ const Footer = () => {
           }
           to={"/services"}
         >
-          Services
+          All Services
         </NavLink>
       </li>
       <li>
