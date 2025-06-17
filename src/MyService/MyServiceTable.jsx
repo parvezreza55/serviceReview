@@ -20,11 +20,14 @@ const MyServiceTable = ({ myServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/myServices/${id}`, {
-            headers: {
-              Authorization: `Bearer ${user.accessToken}`,
-            },
-          })
+          .delete(
+            `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.accessToken}`,
+              },
+            }
+          )
           .then(() => {})
           .catch(() => {});
         Swal.fire({

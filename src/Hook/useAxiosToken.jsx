@@ -3,7 +3,7 @@ import React from "react";
 import UseAuth from "./UseAuth";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://service-review-server-lovat-seven.vercel.app",
 });
 const useAxiosToken = () => {
   const { user, signOutUser } = UseAuth();

@@ -7,7 +7,9 @@ const AllServices = () => {
   const [allServiceData, setAllServiceData] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:3000/allService?searchParams=${search}`)
+    fetch(
+      `https://service-review-server-lovat-seven.vercel.app/allService?searchParams=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setAllServiceData(data));
   }, [search]);

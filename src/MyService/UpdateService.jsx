@@ -19,11 +19,15 @@ const UpdateService = () => {
     serviceData.addedDate = newDate;
     console.log(user);
     axios
-      .put(`http://localhost:3000/myServices/${id}`, serviceData, {
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      .put(
+        `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`,
+        serviceData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({

@@ -18,11 +18,15 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     };
     console.log(_id);
     axios
-      .patch(`http://localhost:3000/review/${_id}`, reviewsData, {
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      .patch(
+        `https://service-review-server-lovat-seven.vercel.app/review/${_id}`,
+        reviewsData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {
@@ -58,11 +62,14 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/review/${id}`, {
-            headers: {
-              Authorization: `Bearer ${user.accessToken}`,
-            },
-          })
+          .delete(
+            `https://service-review-server-lovat-seven.vercel.app/review/${id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${user.accessToken}`,
+              },
+            }
+          )
           .then((res) => {
             console.log(res.data);
           })

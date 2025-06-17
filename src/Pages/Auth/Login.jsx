@@ -52,7 +52,10 @@ const Login = () => {
         const { displayName, email, photoURL } = results;
         const userProf = { displayName, email, photoURL };
         axios
-          .post("http://localhost:3000/users", userProf)
+          .post(
+            "https://service-review-server-lovat-seven.vercel.app/users",
+            userProf
+          )
           .then((res) => {
             if (res.data.insertedId) {
               Swal.fire({

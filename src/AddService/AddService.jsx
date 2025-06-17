@@ -16,11 +16,15 @@ const AddService = () => {
     serviceData.addedDate = newDate;
     // console.log(user);
     axios
-      .post("http://localhost:3000/services", serviceData, {
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      .post(
+        "https://service-review-server-lovat-seven.vercel.app/services",
+        serviceData,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

@@ -13,14 +13,14 @@ const Home = () => {
   const [userReview, setuserReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch("https://service-review-server-lovat-seven.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         setUserData(data);
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:3000/allreview")
+    fetch("https://service-review-server-lovat-seven.vercel.app/allreview")
       .then((res) => res.json())
       .then((data) => {
         setuserReview(data);

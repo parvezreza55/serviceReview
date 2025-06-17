@@ -76,7 +76,10 @@ const Register = () => {
           photoURL,
         };
         axios
-          .post("http://localhost:3000/users", userProf)
+          .post(
+            "https://service-review-server-lovat-seven.vercel.app/users",
+            userProf
+          )
           .then((res) => {
             if (res.data.insertedId) {
               Swal.fire({

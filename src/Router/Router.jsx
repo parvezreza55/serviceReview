@@ -29,7 +29,10 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () => fetch("http://localhost:3000/services"),
+        loader: () =>
+          fetch(
+            "https://service-review-server-lovat-seven.vercel.app/services"
+          ),
         element: <Home></Home>,
       },
       {
@@ -55,7 +58,9 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/services/${params.id}`),
+          fetch(
+            `https://service-review-server-lovat-seven.vercel.app/services/${params.id}`
+          ),
         element: <ServiceDetails></ServiceDetails>,
       },
       {
