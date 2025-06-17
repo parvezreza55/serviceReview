@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { use, useState } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import UseAuth from "../Hook/UseAuth";
 
 const MyServiceTable = ({ myServices }) => {
+  const { user } = UseAuth();
   const servicesData = use(myServices);
   const [myServiceData, setMyServiceData] = useState(servicesData);
-  console.log(myServiceData);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -19,12 +20,12 @@ const MyServiceTable = ({ myServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(
-            `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`
-          )
-          .then((res) => {
-            console.log(res.data);
+          .delete(`http://localhost:3000/myServices/${id}`, {
+            headers: {
+              Authorization: `Bearer ${user.accessToken}`,
+            },
           })
+          .then(() => {})
           .catch(() => {});
         Swal.fire({
           title: "Deleted!",

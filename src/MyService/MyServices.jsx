@@ -18,7 +18,7 @@ const MyServices = () => {
         }
       >
         <MyServiceTable
-          myServices={myServices(user.email, user.accessToken)}
+          myServices={myServices(user?.email, user?.accessToken)}
         ></MyServiceTable>
       </Suspense>
     </div>

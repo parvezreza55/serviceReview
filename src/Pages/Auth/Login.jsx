@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import UseAuth from "../../Hook/UseAuth";
 import Swal from "sweetalert2";
 import { Bounce, toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const { signInGoogle, signIn, setUser } = UseAuth();
@@ -47,6 +48,25 @@ const Login = () => {
       .then((result) => {
         const results = result.user;
         setUser(results);
+        console.log(results);
+        const { displayName, email, photoURL } = results;
+        const userProf = { displayName, email, photoURL };
+        axios
+          .post("http://localhost:3000/users", userProf)
+          .then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Register Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         navigate(location.state || "/");
         Swal.fire({
           position: "center",

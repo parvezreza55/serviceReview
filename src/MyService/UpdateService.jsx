@@ -1,11 +1,12 @@
 import axios from "axios";
 import React from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import UseAuth from "../Hook/UseAuth";
 
 const UpdateService = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   console.log(id);
   const date = new Date();
   const { user } = UseAuth();
@@ -16,13 +17,14 @@ const UpdateService = () => {
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.addedDate = newDate;
+    console.log(user);
     axios
-      .put(
-        `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`,
-        serviceData
-      )
+      .put(`http://localhost:3000/myServices/${id}`, serviceData, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           Swal.fire({
             position: "center",
@@ -32,6 +34,7 @@ const UpdateService = () => {
             timer: 1500,
           });
         }
+        navigate("/myServices");
       })
       .catch((error) => {
         console.log(error);

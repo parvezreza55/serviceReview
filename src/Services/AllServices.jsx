@@ -1,11 +1,43 @@
-import React from "react";
-import { useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
 import AllServiceCard from "./AllServiceCard";
+import { FaSearch } from "react-icons/fa";
 
 const AllServices = () => {
-  const allServiceData = useLoaderData();
+  const [allServiceData, setAllServiceData] = useState([]);
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    fetch(`http://localhost:3000/allService?searchParams=${search}`)
+      .then((res) => res.json())
+      .then((data) => setAllServiceData(data));
+  }, [search]);
   return (
     <div className="w-11/12 mx-auto mt-24">
+      <div className="flex justify-center items-center py-5">
+        <label className="input w-9/12">
+          <svg
+            className="h-[1em] opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            type="search"
+            className="grow"
+            placeholder="Search"
+          />
+        </label>
+      </div>
       <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-5">
         All services
       </h1>

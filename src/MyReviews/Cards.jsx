@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import UseAuth from "../Hook/UseAuth";
+import { Bounce, toast } from "react-toastify";
 
 const Cards = ({ review, reviewsData, setReviewsData }) => {
+  const { user } = UseAuth();
   const [rating, setRating] = useState(0);
   const { serviceTitle, _id } = review;
   const handleReviews = (e) => {
@@ -15,12 +18,26 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     };
     console.log(_id);
     axios
-      .patch(
-        `https://service-review-server-lovat-seven.vercel.app/review/${_id}`,
-        reviewsData
-      )
+      .patch(`http://localhost:3000/review/${_id}`, reviewsData, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
         console.log(res.data);
+        if (res.data.modifiedCount) {
+          toast.success("updated", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -41,9 +58,11 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(
-            `https://service-review-server-lovat-seven.vercel.app/review/${id}`
-          )
+          .delete(`http://localhost:3000/review/${id}`, {
+            headers: {
+              Authorization: `Bearer ${user.accessToken}`,
+            },
+          })
           .then((res) => {
             console.log(res.data);
           })
@@ -90,7 +109,7 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
               className="btn bg-blue-400 text-white hover:bg-blue-300"
               onClick={() => document.getElementById(`${_id}`).showModal()}
             >
-              Update
+              Update now
             </button>
             <dialog id={_id} className="modal">
               <div className="modal-box w-11/12 max-w-5xl">

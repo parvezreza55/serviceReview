@@ -4,6 +4,7 @@ import UseAuth from "../../Hook/UseAuth";
 import { Bounce, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, updateUser, setUser } = UseAuth();
@@ -68,16 +69,29 @@ const Register = () => {
           .catch((error) => {
             console.log(error);
           });
-
-        if (result.user) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Register Successfully",
-            showConfirmButton: false,
-            timer: 1500,
+        const userProf = {
+          email,
+          password,
+          name,
+          photoURL,
+        };
+        axios
+          .post("http://localhost:3000/users", userProf)
+          .then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Register Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
           });
-        }
+
         navigate("/");
       })
       .catch((error) => {

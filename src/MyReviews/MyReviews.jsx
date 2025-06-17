@@ -18,7 +18,7 @@ const MyReviews = () => {
         }
       >
         <MyReviewCard
-          myReviews={myReviews(user.email, user.accessToken)}
+          myReviews={myReviews(user?.email, user?.accessToken)}
         ></MyReviewCard>
       </Suspense>
     </div>

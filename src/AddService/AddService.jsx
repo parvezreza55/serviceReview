@@ -13,14 +13,14 @@ const AddService = () => {
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.addedDate = newDate;
-    console.log(serviceData);
+    // console.log(user);
     axios
-      .post(
-        "https://service-review-server-lovat-seven.vercel.app/services",
-        serviceData
-      )
+      .post("http://localhost:3000/services", serviceData, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             position: "center",
@@ -31,9 +31,7 @@ const AddService = () => {
           });
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
   return (
     <div className="mt-20  w-11/12 mx-auto">

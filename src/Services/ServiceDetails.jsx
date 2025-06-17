@@ -12,9 +12,7 @@ const ServiceDetails = () => {
   const [rating, setRating] = useState(0);
   const { user } = UseAuth();
   useEffect(() => {
-    fetch(
-      `https://service-review-server-lovat-seven.vercel.app/allService/review/${detailsData._id}`
-    )
+    fetch(`http://localhost:3000/allService/review/${detailsData._id}`)
       .then((res) => res.json())
       .then((data) => setReviewData(data));
   }, [detailsData]);
@@ -56,10 +54,11 @@ const ServiceDetails = () => {
       revId,
     };
     axios
-      .post(
-        "https://service-review-server-lovat-seven.vercel.app/review",
-        reviewsData
-      )
+      .post("http://localhost:3000/review", reviewsData, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

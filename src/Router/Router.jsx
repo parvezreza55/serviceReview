@@ -26,10 +26,7 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () =>
-          fetch(
-            "https://service-review-server-lovat-seven.vercel.app/services"
-          ),
+        loader: () => fetch("http://localhost:3000/services"),
         element: <Home></Home>,
       },
       {
@@ -41,10 +38,6 @@ const router = createBrowserRouter([
             </div>
           </>
         ),
-        loader: () =>
-          fetch(
-            "https://service-review-server-lovat-seven.vercel.app/allService"
-          ),
         element: <AllServices></AllServices>,
       },
       {
@@ -57,9 +50,7 @@ const router = createBrowserRouter([
           </>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://service-review-server-lovat-seven.vercel.app/services/${params.id}`
-          ),
+          fetch(`http://localhost:3000/services/${params.id}`),
         element: <ServiceDetails></ServiceDetails>,
       },
       {
