@@ -14,7 +14,7 @@ const AddService = () => {
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.addedDate = newDate;
-    // console.log(user);
+
     axios
       .post(
         "https://service-review-server-lovat-seven.vercel.app/services",

@@ -17,7 +17,6 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     signIn(email, password)
       .then(() => {
         Swal.fire({
@@ -48,7 +47,6 @@ const Login = () => {
       .then((result) => {
         const results = result.user;
         setUser(results);
-        console.log(results);
         const { displayName, email, photoURL } = results;
         const userProf = { displayName, email, photoURL };
         axios
@@ -57,9 +55,7 @@ const Login = () => {
             userProf
           )
           .then(() => {})
-          .catch((error) => {
-            console.log(error);
-          });
+          .catch(() => {});
         navigate(location.state || "/");
         Swal.fire({
           position: "center",

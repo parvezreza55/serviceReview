@@ -7,7 +7,6 @@ import UseAuth from "../Hook/UseAuth";
 const UpdateService = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(id);
   const date = new Date();
   const { user } = UseAuth();
   const newDate = date.toLocaleDateString("en-CA");
@@ -17,7 +16,7 @@ const UpdateService = () => {
     const formData = new FormData(form);
     const serviceData = Object.fromEntries(formData.entries());
     serviceData.addedDate = newDate;
-    console.log(user);
+
     axios
       .put(
         `https://service-review-server-lovat-seven.vercel.app/myServices/${id}`,
@@ -40,9 +39,7 @@ const UpdateService = () => {
         }
         navigate("/myServices");
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
   return (
     <div className="mt-20  w-11/12 mx-auto">

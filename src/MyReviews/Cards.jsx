@@ -16,7 +16,7 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
       textarea,
       rating,
     };
-    console.log(_id);
+
     axios
       .patch(
         `https://service-review-server-lovat-seven.vercel.app/review/${_id}`,
@@ -28,7 +28,6 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           toast.success("updated", {
             position: "top-right",
@@ -43,10 +42,8 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
           });
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log(reviewsData);
+      .catch(() => {});
+
     form.reset();
   };
 
@@ -70,9 +67,7 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
               },
             }
           )
-          .then((res) => {
-            console.log(res.data);
-          })
+          .then(() => {})
           .catch(() => {});
         Swal.fire({
           title: "Deleted!",

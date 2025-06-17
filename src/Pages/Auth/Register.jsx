@@ -66,9 +66,7 @@ const Register = () => {
           .then(() => {
             setUser({ ...results, displayName: name, photoURL: photoURL });
           })
-          .catch((error) => {
-            console.log(error);
-          });
+          .catch(() => {});
         const userProf = {
           email,
           password,
@@ -91,15 +89,11 @@ const Register = () => {
               });
             }
           })
-          .catch((error) => {
-            console.log(error);
-          });
+          .catch(() => {});
 
         navigate("/");
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
   return (
     <form onSubmit={handleRegister} className="hero mt-24">
