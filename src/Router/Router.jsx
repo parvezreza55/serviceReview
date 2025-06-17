@@ -11,14 +11,17 @@ import MyReviews from "../MyReviews/MyReviews";
 import AllServices from "../Services/AllServices";
 import MyServices from "../MyService/MyServices";
 import UpdateService from "../MyService/UpdateService";
+import ErrorPage from "../Components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <HomeLayout></HomeLayout>,
     children: [
       {
         index: true,
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -31,6 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -42,6 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
+        errorElement: <ErrorPage></ErrorPage>,
         hydrateFallbackElement: (
           <>
             <div className="text-center">
@@ -55,6 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addService",
+        errorElement: <ErrorPage></ErrorPage>,
         element: (
           <PrivateRoutes>
             <AddService></AddService>
@@ -63,6 +69,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myServices",
+        errorElement: <ErrorPage></ErrorPage>,
         element: (
           <PrivateRoutes>
             <MyServices></MyServices>
@@ -71,6 +78,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myServices/:id",
+        errorElement: <ErrorPage></ErrorPage>,
         element: (
           <PrivateRoutes>
             <UpdateService></UpdateService>
@@ -79,6 +87,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myReviews",
+        errorElement: <ErrorPage></ErrorPage>,
         element: (
           <PrivateRoutes>
             <MyReviews></MyReviews>
@@ -89,6 +98,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <AuthLayout></AuthLayout>,
     children: [
       {

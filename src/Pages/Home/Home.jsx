@@ -6,6 +6,7 @@ import MeetOurPartner from "../../Components/MeetOurPartner";
 import Faq from "../../Components/Faq";
 import Contact from "../../Components/Contact";
 import CountData from "../../Components/CountData";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [userData, setUserData] = useState([]);
@@ -29,6 +30,9 @@ const Home = () => {
   const serviceData = useLoaderData();
   return (
     <div>
+      <Helmet>
+        <title>Service || Home</title>
+      </Helmet>
       <Banner></Banner>
       <Feature serviceData={serviceData}></Feature>
       <MeetOurPartner></MeetOurPartner>

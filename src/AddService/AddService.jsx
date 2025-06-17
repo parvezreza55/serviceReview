@@ -2,6 +2,7 @@ import React from "react";
 import UseAuth from "../Hook/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const date = new Date();
@@ -35,6 +36,9 @@ const AddService = () => {
   };
   return (
     <div className="mt-20  w-11/12 mx-auto">
+      <Helmet>
+        <title>Service || Add Service</title>
+      </Helmet>
       <h1 className="text-xl md:text-4xl text-center font-bold mb-5">
         Add Service
       </h1>

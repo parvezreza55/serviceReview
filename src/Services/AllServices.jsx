@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AllServiceCard from "./AllServiceCard";
 import { FaSearch } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const AllServices = () => {
   const [allServiceData, setAllServiceData] = useState([]);
@@ -12,6 +13,9 @@ const AllServices = () => {
   }, [search]);
   return (
     <div className="w-11/12 mx-auto mt-24">
+      <Helmet>
+        <title>Service || All Service</title>
+      </Helmet>
       <div className="flex justify-center items-center py-5">
         <label className="input w-9/12">
           <svg
