@@ -4,7 +4,7 @@ import FeatureCard from "./FeatureCard";
 const Feature = ({ serviceData }) => {
   return (
     <>
-      <div className="md:w-11/12 mx-auto mt-32">
+      <div className="w-11/12 mx-auto mt-32">
         <div className="text-center mb-7">
           <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">
             Featured Services
