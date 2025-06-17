@@ -56,17 +56,7 @@ const Login = () => {
             "https://service-review-server-lovat-seven.vercel.app/users",
             userProf
           )
-          .then((res) => {
-            if (res.data.insertedId) {
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Register Successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
-          })
+          .then(() => {})
           .catch((error) => {
             console.log(error);
           });
