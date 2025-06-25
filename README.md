@@ -16,6 +16,12 @@ A full-stack web application that allows users to post, manage, and review servi
 
 ---
 
+## 📸 Screenshot
+
+![ServiceReview Screenshot](./src/assets/images/services.png)
+
+---
+
 ## 📋 Key Features
 
 ✅ User Authentication using Firebase  
