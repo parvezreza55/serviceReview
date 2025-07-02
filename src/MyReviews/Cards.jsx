@@ -4,7 +4,8 @@ import Swal from "sweetalert2";
 import UseAuth from "../Hook/UseAuth";
 import { Bounce, toast } from "react-toastify";
 
-const Cards = ({ review, reviewsData, setReviewsData }) => {
+const Cards = ({ review, myReview, fetchReview }) => {
+  console.log(myReview);
   const { user } = UseAuth();
   const [rating, setRating] = useState(0);
   const { serviceTitle, _id } = review;
@@ -41,6 +42,11 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
             transition: Bounce,
           });
         }
+        // const updateReview = myReview.map((rev) =>
+        //   rev._id === _id ? { ...rev, textarea, rating } : rev
+        // );
+        // setMyReview(updateReview);
+        fetchReview();
       })
       .catch(() => {});
 
@@ -75,14 +81,13 @@ const Cards = ({ review, reviewsData, setReviewsData }) => {
           icon: "success",
         });
         // remaining data
-        const remainingReview = reviewsData.filter((rev) => rev._id !== id);
-        setReviewsData(remainingReview);
+        fetchReview();
       }
     });
   };
   return (
     <div>
-      <div className="card px-5 bg-base-100 md:w-2xl shadow-sm mt-5">
+      <div className="card px-5 bg-base-100 shadow-sm mt-5">
         <div className="card-body justify-center items-center">
           <h2 className="">
             <div className="flex flex-col">

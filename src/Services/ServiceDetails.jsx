@@ -11,12 +11,15 @@ const ServiceDetails = () => {
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const { user } = UseAuth();
-  useEffect(() => {
+  const Refech = () => {
     fetch(
       `https://service-review-server-lovat-seven.vercel.app/allService/review/${detailsData._id}`
     )
       .then((res) => res.json())
       .then((data) => setReviewData(data));
+  };
+  useEffect(() => {
+    Refech();
   }, [detailsData]);
   const handleAddRiview = () => {
     if (!user) {
@@ -75,6 +78,7 @@ const ServiceDetails = () => {
             timer: 1500,
           });
         }
+        Refech();
       })
       .catch(() => {});
   };

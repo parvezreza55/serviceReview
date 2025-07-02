@@ -12,6 +12,10 @@ import AllServices from "../Services/AllServices";
 import MyServices from "../MyService/MyServices";
 import UpdateService from "../MyService/UpdateService";
 import ErrorPage from "../Components/ErrorPage";
+import DashBoardLayOut from "../Layouts/DashBoardLayOut";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import Allitems from "../Pages/Dashboard/DashComponents/Allitems";
+import MyRev from "../Pages/Dashboard/DashComponents/MyRev";
 
 const router = createBrowserRouter([
   {
@@ -113,6 +117,32 @@ const router = createBrowserRouter([
       {
         path: "/auth/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <PrivateRoutes>
+        <DashBoardLayOut></DashBoardLayOut>
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/all-items",
+        element: <Allitems></Allitems>,
+      },
+      {
+        path: "/dashboard/myReviews",
+        element: <MyRev></MyRev>,
+      },
+      {
+        path: "/dashboard/myServices",
+        element: <MyServices></MyServices>,
       },
     ],
   },

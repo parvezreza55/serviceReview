@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 const MyServices = () => {
   const { user } = UseAuth();
   const { myServices } = useServiceApi();
+  const myService = myServices(user?.email, user?.accessToken);
   return (
     <div>
       <Helmet>
@@ -21,9 +22,7 @@ const MyServices = () => {
           </>
         }
       >
-        <MyServiceTable
-          myServices={myServices(user?.email, user?.accessToken)}
-        ></MyServiceTable>
+        <MyServiceTable myServices={myService}></MyServiceTable>
       </Suspense>
     </div>
   );

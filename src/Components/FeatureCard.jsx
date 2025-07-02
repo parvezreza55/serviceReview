@@ -9,9 +9,9 @@ const FeatureCard = ({ service }) => {
         <img className="h-[19em]" src={serviceImage} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{serviceTitle}</h2>
-        <p>{description}</p>
-        <p className="font-bold">Price: $ {price}</p>
+        <h2 className="card-title text-xl">{serviceTitle}</h2>
+        <p className="opacity-90">{description}</p>
+        <p className="font-semibold">Price: $ {price}</p>
         <div className="card-actions justify-end">
           <button className="btn bg-blue-400 text-white hover:bg-blue-300">
             <Link to={`/serviceDetails/${_id}`}>See Details</Link>

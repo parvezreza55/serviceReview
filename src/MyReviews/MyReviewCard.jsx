@@ -1,20 +1,21 @@
-import React, { use, useState } from "react";
+import React from "react";
 import Cards from "./Cards";
 
-const MyReviewCard = ({ myReviews }) => {
-  const reviews = use(myReviews);
-  const [reviewsData, setReviewsData] = useState(reviews);
+const MyReviewCard = ({ myReview, fetchReview, setMyReview }) => {
   return (
-    <div className="w-11/12 mx-auto flex flex-col justify-center items-center">
-      {reviewsData.map((review) => (
-        <Cards
-          key={review._id}
-          review={review}
-          reviews={reviews}
-          setReviewsData={setReviewsData}
-          reviewsData={reviewsData}
-        ></Cards>
-      ))}
+    <div className="w-11/12 mx-auto">
+      <h1 className="text-center text-3xl font-bold my-10">My Reviews</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {myReview.map((review) => (
+          <Cards
+            key={review._id}
+            review={review}
+            myReview={myReview}
+            setMyReview={setMyReview}
+            fetchReview={fetchReview}
+          ></Cards>
+        ))}
+      </div>
     </div>
   );
 };

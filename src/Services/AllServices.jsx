@@ -6,19 +6,21 @@ import { Helmet } from "react-helmet-async";
 const AllServices = () => {
   const [allServiceData, setAllServiceData] = useState([]);
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
+  const [filter, setFilter] = useState("");
   useEffect(() => {
     fetch(
-      `https://service-review-server-lovat-seven.vercel.app/allService?searchParams=${search}`
+      `https://service-review-server-lovat-seven.vercel.app/allService?searchParams=${search}&filter=${filter}&sort=${sort}`
     )
       .then((res) => res.json())
       .then((data) => setAllServiceData(data));
-  }, [search]);
+  }, [search, filter, sort]);
   return (
-    <div className="w-11/12 mx-auto mt-24">
+    <div className="w-11/12 mx-auto mt-7">
       <Helmet>
         <title>Service || All Service</title>
       </Helmet>
-      <div className="flex justify-center items-center py-5">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-2 mb-5">
         <label className="input w-9/12">
           <svg
             className="h-[1em] opacity-50"
@@ -43,7 +45,35 @@ const AllServices = () => {
             placeholder="Search"
           />
         </label>
+        <div className=" flex gap-2 justify-end">
+          <fieldset
+            onChange={(e) => setSort(e.target.value)}
+            className="fieldset w-[20vw] md:w-[10vw]"
+          >
+            <select defaultValue="Pick a browser" className="select">
+              <option value="">Sort</option>
+              <option value="asc">Low to High Price</option>
+              <option value="desc">High to low price</option>
+            </select>
+          </fieldset>
+          <fieldset
+            onChange={(e) => setFilter(e.target.value)}
+            className="fieldset w-[20vw] md:w-[11vw]"
+          >
+            <select className="select">
+              <option value="">Filter</option>
+              <option value="design">Design</option>
+              <option value="pet">Pet care</option>
+              <option value="marketing"> Marketing</option>
+              <option value="printing">Printing</option>
+              <option value="education">Education</option>
+              <option value="Web">Web development</option>
+              <option value="health">Health and Fitness</option>
+            </select>
+          </fieldset>
+        </div>
       </div>
+
       <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-5">
         All services
       </h1>

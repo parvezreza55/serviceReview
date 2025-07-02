@@ -8,6 +8,7 @@ const MyServiceTable = ({ myServices }) => {
   const { user } = UseAuth();
   const servicesData = use(myServices);
   const [myServiceData, setMyServiceData] = useState(servicesData);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -41,8 +42,18 @@ const MyServiceTable = ({ myServices }) => {
       }
     });
   };
+  if (myServiceData.length === 0) {
+    return (
+      <>
+        <div className="flex flex-col justify-center items-center h-[30vh]">
+          <h1 className="text-3xl font-bold">Opps! No Added sevice</h1>
+        </div>
+      </>
+    );
+  }
   return (
     <div className="w-11/12 md:w-9/12 mx-auto mt-24">
+      <h1 className="text-3xl font-bold text-center mb-8">My Services</h1>
       <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
         <table className="table">
           {/* head */}

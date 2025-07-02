@@ -56,6 +56,18 @@ const Navbar = () => {
               ? "underline text-white bg-blue-400 hover:text-white"
               : "hover:bg-blue-400 hover:text-white"
           }
+          to={"/dashboard"}
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "underline text-white bg-blue-400 hover:text-white"
+              : "hover:bg-blue-400 hover:text-white"
+          }
           to={"/services"}
         >
           All Services
@@ -111,11 +123,15 @@ const Navbar = () => {
     });
   };
   return (
-    <div className="bg-base-100 shadow-sm sticky top-0 z-10">
-      <div className="navbar md:w-11/12 mx-auto py-3 ">
+    <div className="bg-blue-100 shadow-sm sticky top-0 z-10">
+      <div className="navbar px-0 md:w-11/12 mx-auto py-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost mr-1 lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -140,8 +156,8 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to={"/"} className="flex items-center gap-2">
-            <img className="w-14" src={logImg} alt="Logo" />
-            <h1 className="text-xl md:text-2xl font-bold hidden md:flex">
+            <img className="w-14 rounded-full" src={logImg} alt="Logo" />
+            <h1 className="text-xl md:text-3xl font-bold hidden md:flex">
               Service<span className="text-[#1191D0]">Review</span>
             </h1>
           </Link>
@@ -173,9 +189,7 @@ const Navbar = () => {
             <>
               <button
                 onClick={handleLogOut}
-                className={
-                  "btn hover:bg-blue-400 hover:text-white border border-black"
-                }
+                className={"btn bg-blue-400 text-white hover:bg-blue-500"}
               >
                 LogOut
               </button>
@@ -183,17 +197,13 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink
-                className={
-                  "btn hover:bg-blue-400 hover:text-white border border-black"
-                }
+                className={"btn bg-blue-400 text-white hover:bg-blue-500"}
                 to={"/auth/login"}
               >
                 LogIn
               </NavLink>
               <NavLink
-                className={
-                  "btn hover:bg-blue-400 hover:text-white border border-black"
-                }
+                className={"btn bg-blue-400 text-white hover:bg-blue-500"}
                 to={"/auth/register"}
               >
                 Register
