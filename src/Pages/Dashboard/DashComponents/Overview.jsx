@@ -17,10 +17,10 @@ const Overview = () => {
   }, []);
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
-        <div className="bg-base-200 md:px-10 py-3 rounded-2xl">
-          <div className="stat-figure text-secondary"></div>
-          <div className="stat-title text-lg font-semibold">Page Views</div>
+      <div className="md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center space-y-2 ">
+        <div className="bg-base-200 px-10 py-3 rounded-2xl">
+          {/* <div className="stat-figure text-secondary"></div> */}
+          <div className="stat-title text-lg font-semibold">Total User</div>
           <div className="flex items-center justify-evenly text-blue-400">
             <div className="stat-value">{userData.length}</div>
             <h1>
@@ -32,7 +32,7 @@ const Overview = () => {
 
         {/* card 2  */}
         <div className="bg-base-200 px-10 py-3 rounded-2xl">
-          <div className="stat-figure text-secondary"></div>
+          {/* <div className="stat-figure text-secondary"></div> */}
           <div className="stat-title text-lg font-semibold">Total Review</div>
           <div className="flex items-center justify-evenly text-blue-400">
             <div className="stat-value">{review.length}</div>
@@ -44,7 +44,7 @@ const Overview = () => {
         </div>
         {/* card 3  */}
         <div className="bg-base-200 px-10 py-3 rounded-2xl">
-          <div className="stat-figure text-secondary"></div>
+          {/* <div className="stat-figure text-secondary"></div> */}
           <div className="stat-title text-lg font-semibold">Review Added</div>
           <div className="flex items-center justify-evenly text-blue-400">
             <div className="stat-value">100+</div>
@@ -56,7 +56,7 @@ const Overview = () => {
         </div>
         {/* card 4  */}
         <div className="bg-base-200 px-10 py-3 rounded-2xl">
-          <div className="stat-figure text-secondary"></div>
+          {/* <div className="stat-figure text-secondary"></div> */}
           <div className="stat-title text-lg font-semibold">Good Review</div>
           <div className="flex items-center justify-evenly text-blue-400">
             <div className="stat-value">60+</div>

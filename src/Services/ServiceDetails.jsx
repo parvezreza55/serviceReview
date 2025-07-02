@@ -99,17 +99,21 @@ const ServiceDetails = () => {
             </h2>
             <div>
               <p>{description}</p>
-              <div className="text-xs md:text-lg grid grid-cols-1 md:grid-cols-2 md:w-3/4 mx-auto mt-3 font-semibold mb-3">
-                <p>Company : {companyName}</p>
-                <p>Category : {category}</p>
-                <p>
-                  Website :
-                  <Link className="text-xs ml-2 font-normal text-blue-400">
-                    {website}
-                  </Link>{" "}
-                </p>
-                <p>Price : $ {price}</p>
-                <p>Created : {addedDate}</p>
+              <div className="md:text-lg grid grid-cols-1 md:grid-cols-2 mt-3 font-semibold space-y-3">
+                <div className="space-y-2">
+                  <p className="text-sm ">Company : {companyName}</p>
+                  <p className="text-sm ">Category : {category}</p>
+                  <p className="text-sm ">
+                    Website :
+                    <Link className="text-sm ml-2 font-normal text-blue-400">
+                      {website}
+                    </Link>{" "}
+                  </p>{" "}
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm ">Price : $ {price}</p>
+                  <p className="text-sm ">Created : {addedDate}</p>
+                </div>
               </div>
               <p className="font-bold my-3">Review: {reviewData.length}</p>
             </div>

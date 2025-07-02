@@ -9,15 +9,15 @@ const Allitems = () => {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center my-12">All Items</h1>
+    <div className=" mb-10">
+      <h1 className="text-3xl text-center font-bold my-14">All Items</h1>
       <div className="overflow-x-auto  mx-auto border rounded-2xl">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-sm">
               <th>Sl.</th>
-              <th>Company Name</th>
+              <th>User Name</th>
               <th className="hidden md:flex mt-2">Profile</th>
               <th className="text-center">Email</th>
             </tr>

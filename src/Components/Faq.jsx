@@ -2,7 +2,7 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="w-11/12 mx-auto mt-24">
+    <div data-aos="zoom-in-up" className="w-11/12 mx-auto mt-24">
       <h1 className="text-xl md:text-4xl font-bold text-center my-16">FAQ</h1>
       <div className="collapse collapse-plus bg-base-100 border border-base-300">
         <input type="radio" name="my-accordion-3" defaultChecked />
