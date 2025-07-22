@@ -4,7 +4,7 @@ const MyRevTable = ({ myReviewData }) => {
   console.log(myReviewData);
   return (
     <div>
-      <h1 className="text-3xl text-center font-bold my-14">My Reviews</h1>
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font text-center  my-14">My Reviews</h1>
       <div className="overflow-x-auto  mx-auto border rounded-2xl">
         <table className="table">
           {/* head */}

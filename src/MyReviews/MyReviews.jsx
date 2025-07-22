@@ -33,7 +33,9 @@ const MyReviews = () => {
     return (
       <>
         <div className="flex flex-col justify-center items-center h-[30vh]">
-          <h1 className="text-3xl font-bold">Opps! No Reviews Found</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font">
+            Opps! No Reviews Found
+          </h1>
         </div>
       </>
     );

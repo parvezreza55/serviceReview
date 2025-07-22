@@ -43,7 +43,7 @@ const AddService = () => {
       <Helmet>
         <title>Service || Add Service</title>
       </Helmet>
-      <h1 className="text-xl md:text-4xl text-center font-bold mb-5">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font text-center  mb-5">
         Add Service
       </h1>
       <form onSubmit={handleAddService}>

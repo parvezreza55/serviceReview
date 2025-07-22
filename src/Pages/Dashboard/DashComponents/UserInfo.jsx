@@ -3,7 +3,9 @@ import React from "react";
 const UserInfo = ({ userData }) => {
   return (
     <div className="mt-24 mb-10 w-11/12 mx-auto">
-      <h1 className="text-3xl text-center font-bold mb-10">User Data</h1>
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font text-center mb-10">
+        User Data
+      </h1>
       <div className="overflow-x-auto md:w-9/12 mx-auto border rounded-2xl">
         <table className="table">
           {/* head */}
