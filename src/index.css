@@ -8,11 +8,15 @@
   font-family: "Poppins", sans-serif;
 }
 body {
+  margin: 0;
   background: #fff;
   background-image: radial-gradient(
     circle at top right,
-    rgba(70, 130, 180, 0.4),
+    rgba(189, 210, 228, 0.5),
     transparent 70%
   );
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
