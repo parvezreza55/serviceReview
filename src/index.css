@@ -6,3 +6,12 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+body {
+  background: #fff;
+  background-image: radial-gradient(
+    circle at top right,
+    rgba(70, 130, 180, 0.5),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
+}
