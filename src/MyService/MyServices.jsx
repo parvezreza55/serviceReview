@@ -9,7 +9,7 @@ const MyServices = () => {
   const { myServices } = useServiceApi();
   const myService = myServices(user?.email, user?.accessToken);
   return (
-    <div>
+    <div className="md:w-9/12 mx-auto">
       <Helmet>
         <title>Service || My Service</title>
       </Helmet>

@@ -39,7 +39,7 @@ const MyReviews = () => {
     );
   }
   return (
-    <div>
+    <div className="w-11/12 md:w-9/12 mx-auto">
       <Helmet>
         <title>Sevice || My Review</title>
       </Helmet>

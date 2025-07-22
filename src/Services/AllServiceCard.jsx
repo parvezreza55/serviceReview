@@ -7,7 +7,11 @@ const AllServiceCard = ({ services }) => {
   return (
     <div data-aos="zoom-in-up" className="card bg-base-100 shadow-sm">
       <figure>
-        <img className="h-[19em]" src={serviceImage} alt="Shoes" />
+        <img
+          className="h-[19em] w-full object-cover"
+          src={serviceImage}
+          alt="Shoes"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{serviceTitle}</h2>

@@ -39,7 +39,7 @@ const AddService = () => {
       .catch(() => {});
   };
   return (
-    <div className="mt-20  w-11/12 mx-auto">
+    <div className="mt-20 w-11/12 md:w-9/12 mx-auto">
       <Helmet>
         <title>Service || Add Service</title>
       </Helmet>

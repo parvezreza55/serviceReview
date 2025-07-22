@@ -16,7 +16,7 @@ const AllServices = () => {
       .then((data) => setAllServiceData(data));
   }, [search, filter, sort]);
   return (
-    <div className="w-9/12 mx-auto mt-7">
+    <div className="md:w-9/12 mx-auto mt-7">
       <Helmet>
         <title>Service || All Service</title>
       </Helmet>

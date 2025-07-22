@@ -3,7 +3,7 @@ import CountUp from "react-countup";
 
 const CountData = ({ userData, serviceData, userReview }) => {
   return (
-    <div data-aos="zoom-in-up" className="w-9/12 mx-auto my-24">
+    <div data-aos="zoom-in-up" className="w-11/12 md:w-9/12 mx-auto my-24">
       <h1 className="text-xl md:text-4xl space-y-3 font-bold my-10 text-center">
         Our Impact
       </h1>
