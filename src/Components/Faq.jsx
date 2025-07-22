@@ -3,7 +3,9 @@ import React from "react";
 const Faq = () => {
   return (
     <div data-aos="zoom-in-up" className="w-11/12 md:w-9/12 mx-auto mt-24">
-      <h1 className="text-xl md:text-4xl font-bold text-center my-16">FAQ</h1>
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font text-center my-16">
+        FAQ
+      </h1>
       <div className="collapse collapse-plus bg-base-100 border border-base-300">
         <input type="radio" name="my-accordion-3" defaultChecked />
         <div className="collapse-title font-semibold">

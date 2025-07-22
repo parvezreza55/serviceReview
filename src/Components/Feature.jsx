@@ -6,7 +6,7 @@ const Feature = ({ serviceData }) => {
     <>
       <div data-aos="fade-right" className="w-11/12 md:w-9/12 mx-auto mt-24">
         <div className="text-center mb-7">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font">
             Featured Services
           </h1>
           <p className="mt-3 opacity-50">

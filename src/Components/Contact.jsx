@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div data-aos="zoom-in-up" className="w-11/12 mx-auto mt-24">
       <div>
-        <h1 className="text-xl md:text-4xl font-bold text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font text-center">
           Contact Us
         </h1>
         <p className="opacity-50 text-center mt-3">

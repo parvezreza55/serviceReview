@@ -7,7 +7,7 @@ import Marquee from "react-fast-marquee";
 const MeetOurPartner = () => {
   return (
     <div data-aos="zoom-in-up" className="mt-24 w-11/12 mx-auto">
-      <h1 className="text-2xl md:text-4xl font-bold my-10 md:mb-16 text-center">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold heading-font my-10 md:mb-16 text-center">
         Meet our partners
       </h1>
       <Marquee>
