@@ -16,7 +16,7 @@ const MyServices = () => {
       <Suspense
         fallback={
           <>
-            <div className="text-center min-h-0[100vh]">
+            <div className="text-center min-h-[100vh]">
               <span className="loading loading-spinner text-neutral"></span>
             </div>
           </>

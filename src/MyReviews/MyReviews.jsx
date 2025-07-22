@@ -23,7 +23,7 @@ const MyReviews = () => {
   if (loading) {
     return (
       <>
-        <div className="text-center">
+        <div className="text-center h-[100vh]">
           <span className="loading loading-spinner text-neutral"></span>
         </div>
       </>
