@@ -70,7 +70,7 @@ const Footer = () => {
   );
   return (
     <div data-aos="zoom-in-up" className="pt-20 md:pt-30">
-      <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+      <footer className="footer footer-horizontal footer-center bg-blue-50 text-base-content rounded p-10">
         <Link to={"/"} className="flex items-center gap-2">
           <img className="w-10 rounded-full" src={logImg} alt="Logo" />
           <h1 className="text-3xl font-bold">
